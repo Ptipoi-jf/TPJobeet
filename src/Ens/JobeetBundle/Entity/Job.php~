@@ -18,7 +18,7 @@ class Job
     private $id;
 
     /**
-		* @var string
+	 * @var string
      */
     private $type;
 
@@ -148,7 +148,7 @@ class Job
     }
     
     /**
-     * 
+     * retourne les valeurs des types
      * @return array
      */
     public static function getTypeValues()
@@ -500,6 +500,7 @@ class Job
     {
         return $this->category;
     }
+    
     /**
      * @ORM\PrePersist
 	 * rend doctrine capable de modifier les valeurs created_at
@@ -549,6 +550,7 @@ class Job
 	}
 
     /**
+     * défini l'expiration d'une offre
      * @ORM\PrePersist
      */
     public function setExpiresAtValue()
@@ -561,7 +563,7 @@ class Job
 	}
 	
 	/**
-	 * 
+	 * retourne l'url pour upload des offres
 	 * @return string
 	 */
 	protected function getUploadDir()
@@ -570,7 +572,7 @@ class Job
 	}
 	
 	/**
-	 * 
+	 * uplaod en étant root
 	 * @return string
 	 */
 	protected function getUploadRootDir()
@@ -579,7 +581,7 @@ class Job
 	}
 	
 	/**
-	 * 
+	 * retourn l'url du site web
 	 * @return <NULL | string>
 	 */
 	public function getWebPath()
@@ -588,7 +590,7 @@ class Job
 	}
 	
 	/**
-	 * 
+	 * retourne le path en absolute
 	 * @return <NULL | string>
 	 */
 	public function getAbsolutePath()
@@ -646,7 +648,7 @@ class Job
 	}
 	
 	/**
-	 * 
+	 * retourn si l'offre est expirée
 	 * @return boolean
 	 */
 	public function isExpired()
@@ -655,7 +657,7 @@ class Job
 	}
 	
 	/**
-	 * 
+	 * retourn si l'offre expire bientot
 	 * @return boolean
 	 */
 	public function expiresSoon()
@@ -664,7 +666,7 @@ class Job
 	}
 	
 	/**
-	 * 
+	 * retourn le nombre de jour avant expiration
 	 * @return float
 	 */
 	public function getDaysBeforeExpires()

@@ -110,26 +110,46 @@ class Category
         return $this->jobs;
     }
 	
+    /**
+     * convert to string
+     * @return \Ens\JobeetBundle\Entity\string
+     */
 	public function __toString()
 	{
 		return $this->getName();
 	}
 	
+	/**
+	 * défini un job comme actif
+	 * @param job $jobs
+	 */
 	 public function setActiveJobs($jobs)
 	{
 		$this->active_jobs = $jobs;
 	}
 	
+	/**
+	 * obtient les jobs actifs
+	 * @return \Ens\JobeetBundle\Entity\jobs
+	 */
 	public function getActiveJobs()
 	{
 		return $this->active_jobs;
 	}
 	
+	/**
+	 * défini plus de job à afficher
+	 * @param job $jobs
+	 */
 	public function setMoreJobs($jobs)
 	{
 		$this->more_jobs = $jobs >= 0 ? $jobs : 0;
 	}
 	
+	/**
+	 * affiche plus de job
+	 * @return \Ens\JobeetBundle\Entity\integer
+	 */
 	public function getMoreJobs()
 	{
 		return $this->more_jobs;

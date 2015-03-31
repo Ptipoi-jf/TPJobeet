@@ -18,7 +18,7 @@ class Job
     private $id;
 
     /**
-		* @var string
+	 * @var string
      */
     private $type;
 

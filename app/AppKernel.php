@@ -18,6 +18,12 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Ens\JobeetBundle\EnsJobeetBundle(),
 			new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+        	//Sonata
+        	new Sonata\CoreBundle\SonataCoreBundle(),
+        	new Sonata\BlockBundle\SonataBlockBundle(),
+        	new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+        	new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+        	new Sonata\AdminBundle\SonataAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
@@ -25,9 +31,11 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Bazinga\Bundle\FakerBundle\BazingaFakerBundle();
+            
         }
 
-        return $bundles;
+		return $bundles;
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)

@@ -46,3 +46,20 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+#BazingaFakerBundle
+bazinga_faker:
+    orm: doctrine
+    entities:
+        Ens\JobeetBundle\Entity\Job:
+            number: 10
+            custom_formatters:
+                type: { method: randomElement, parameters: [ ['full-time', 'part-time', 'freelance'] ] }
+                #category: { method: numberBetween, parameters: [1, 4] }
+                company: { method: word }
+                token: { method: numberBetween, parameters: [111111, 999999] }
+                description: { method: sentence, parameters: [10] }
+                how_to_apply: { method: sentence, parameters: [5] }
+                created_at: { method: DateTime, parameters: ['2015-03-25 08:37:17'] }
+                expires_at: { method: DateTime, parameters: ['2015-04-05 08:37:17'] }
+                is_activated: { method: NULL }

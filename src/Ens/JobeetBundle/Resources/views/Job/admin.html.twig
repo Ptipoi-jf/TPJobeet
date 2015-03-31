@@ -12,8 +12,8 @@
 		{% endif %}
 		<li>
 			<form action="{{ path('ens_job_delete', { 'token': job.token }) }}" method="post">
-<!--				{{ form_widget(delete_form) }} -->
-				<button type="submit" onclick="if(!confirm('Are you sure?')) { returnfalse; }">Delete</button>
+				{{ form_widget(delete_form) }}
+				<button type="submit" onclick="if(!confirm('Are you sure?')) { return false; }">Delete</button>
 			</form>
 		</li>
 		{% if job.isActivated %}
@@ -28,7 +28,7 @@
 			
 			{% if job.isExpired %}
 				Expired
-			{% else %}
+			{% else %}	
 				Expires in <strong>{{ job.getDaysBeforeExpires }}</strong> days
 			{% endif %}
 			
