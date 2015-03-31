@@ -103,7 +103,7 @@ class JobControllerTest extends WebTestCase
 		$kernel->boot();
 		
 		$max_jobs_on_homepage = $kernel->getContainer()->getParameter('max_jobs_on_homepage');
-		$max_jobs_on_category = $kernel->getContainer()->getParameter('max_jobs_on_category');
+		//$max_jobs_on_category = $kernel->getContainer()->getParameter('max_jobs_on_category');
 		
 		$client = static::createClient();
 		$crawler = $client->request('GET', '/');
@@ -114,7 +114,7 @@ class JobControllerTest extends WebTestCase
 		$this->assertTrue($crawler->filter('.jobs td.position:contains("Expired")')->count() == 0);
 		
 		// only $max_jobs_on_homepage jobs are listed for a category
-		$this->assertTrue($crawler->filter('.category_programming tr')->count() == 10);
+		$this->assertTrue($crawler->filter('.category_programming tr')->count() <= $max_jobs_on_homepage);
 		$this->assertTrue($crawler->filter('.category_design .more_jobs')->count() == 0);
 		$this->assertTrue($crawler->filter('.category_programming .more_jobs')->count() == 1);
 		

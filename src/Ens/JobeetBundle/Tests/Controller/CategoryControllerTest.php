@@ -14,8 +14,8 @@ class CategoryControllerTest extends WebTestCase
 		// get the custom parameters from app config.yml
 		$kernel = static::createKernel();
 		$kernel->boot();
-		$max_jobs_on_homepage = $kernel->getContainer()->getParameter('max_jobs_on_homepage');
-		$max_jobs_on_category = $kernel->getContainer()->getParameter('max_jobs_on_category');
+		//$max_jobs_on_homepage = $kernel->getContainer()->getParameter('max_jobs_on_homepage');
+		//$max_jobs_on_category = $kernel->getContainer()->getParameter('max_jobs_on_category');
 		$client = static::createClient();
 		
 		// categories on homepage are clickable
@@ -33,7 +33,7 @@ class CategoryControllerTest extends WebTestCase
 		$this->assertEquals('programming', $client->getRequest()->attributes->get('slug'));
 		
 		// only $max_jobs_on_category jobs are listed
- 		$this->assertTrue($crawler->filter('td.jobs')->count() >= 1 );
+ 		$this->assertTrue($crawler->filter('.jobs tr')->count() >= 1 );
 		$this->assertRegExp('/33 jobs/', $crawler->filter('.pagination_desc')->text());
 		$this->assertRegExp('/page 1\/2/', $crawler->filter('.pagination_desc')->text());
     	
